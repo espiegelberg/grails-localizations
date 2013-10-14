@@ -29,6 +29,7 @@ class Localization implements Serializable {
     Date lastUpdated    
 
     static mapping = {
+        text type: "text"
         columns {
             code index: "localizations_idx"
             locale column: "loc"
@@ -42,7 +43,7 @@ class Localization implements Serializable {
             if (obj.locale) obj.relevance = obj.locale.length()
             return true
         })
-        text(blank: true, size: 0..2000)
+        text(blank: true)
     }
 
     def localeAsObj() {
